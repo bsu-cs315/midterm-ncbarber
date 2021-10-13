@@ -25,3 +25,5 @@ func _physics_process(delta):
 	
 	if jumpped and is_on_floor():
 		jumpped = false
+	
+	velocity = move_and_slide(velocity, Vector2(0,-1))
