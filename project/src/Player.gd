@@ -23,6 +23,7 @@ func _physics_process(delta):
 			jumpped = true
 	
 	_process_animation()
+	#_process_collision()
 	velocity.y += gravity * delta
 	
 	if jumpped and is_on_floor():

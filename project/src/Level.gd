@@ -14,7 +14,7 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_pressed("reset"):
-		restart_level()
+		restart_game()
 		
 	if Input.is_action_pressed("quit"):
 		get_tree().quit()
@@ -29,10 +29,18 @@ func spawn_player():
 
 func spawn_enemy(spawn_position):
 	enemy = load("res://src/Enemy.tscn").instance()
+	var _connection = enemy.connect("player_hit", self, "register_hit")
 	enemy.position = spawn_position
 	call_deferred("add_child", enemy)
 
 
-func restart_level():
+func register_hit():
+	call_deferred("remove_child", player)
+	call_deferred("remove_child", enemy)
+	health -= 1
+	_ready()
+
+
+func restart_game():
 	var _restart := get_tree().change_scene("res://src/Title.tscn")
 
