@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/Nosifer-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/Title.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/SpookySong.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "ZoomIn"
 length = 3.0
 tracks/0/type = "value"
@@ -23,7 +24,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "ZoomIn"
 length = 3.0
 tracks/0/type = "value"
@@ -39,13 +40,12 @@ tracks/0/keys = {
 "values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 64
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "FloatIn"
+[sub_resource type="Animation" id=5]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -57,11 +57,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 158.5, 600 ), Vector2( 158.5, 400 ), Vector2( 158.5, 200 ), Vector2( 158.5, 100 ) ]
+"values": [ Vector2( 158.5, 600 ), Vector2( 158.5, 400 ), Vector2( 158.5, 200 ), Vector2( 158.5, 50 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "MoveAndRotate"
+[sub_resource type="Animation" id=6]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -74,7 +73,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 158.5, 100 ), Vector2( 138.5, 105 ), Vector2( 118.5, 110 ), Vector2( 138.5, 105 ), Vector2( 158.5, 100 ), Vector2( 178.5, 100 ), Vector2( 198.5, 90 ), Vector2( 178.5, 95 ), Vector2( 158.5, 100 ) ]
+"values": [ Vector2( 158.5, 50 ), Vector2( 138.5, 45 ), Vector2( 118.5, 40 ), Vector2( 138.5, 45 ), Vector2( 158.5, 50 ), Vector2( 178.5, 45 ), Vector2( 198.5, 50 ), Vector2( 178.5, 45 ), Vector2( 158.5, 50 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rect_rotation")
@@ -88,6 +87,17 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, 1.0, 2.0, 1.0, 0.0, -1.0, -2.0, -1.0, 0.0 ]
 }
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 2
+emission_box_extents = Vector3( 175, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 10, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+scale = 2.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="Title" type="Control"]
 margin_right = 1037.0
@@ -124,7 +134,7 @@ __meta__ = {
 
 [node name="ZoomIn" type="AnimationPlayer" parent="Start Game"]
 autoplay = "ZoomIn"
-anims/ZoomIn = SubResource( 5 )
+anims/ZoomIn = SubResource( 2 )
 
 [node name="HowToPlay" type="Button" parent="."]
 anchor_left = 0.5
@@ -145,31 +155,49 @@ __meta__ = {
 
 [node name="ZoomIn" type="AnimationPlayer" parent="HowToPlay"]
 autoplay = "ZoomIn"
-anims/ZoomIn = SubResource( 6 )
+anims/ZoomIn = SubResource( 3 )
 
 [node name="TitleText" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -360.0
-margin_top = 100.0
+margin_top = 50.0
 margin_right = 360.0
-margin_bottom = 212.0
+margin_bottom = 277.0
 rect_pivot_offset = Vector2( 364.901, 53.9984 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.560784, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Half-Way Home"
+text = "Half-Way Home
+on Halloween"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="FloatIn" type="AnimationPlayer" parent="TitleText"]
 autoplay = "FloatIn"
-anims/FloatIn = SubResource( 3 )
+anims/FloatIn = SubResource( 5 )
 
 [node name="MoveAndRotate" type="AnimationPlayer" parent="TitleText"]
-anims/MoveAndRotate = SubResource( 4 )
+anims/MoveAndRotate = SubResource( 6 )
+
+[node name="Particles2D" type="Particles2D" parent="TitleText"]
+position = Vector2( 355.841, 74.5661 )
+scale = Vector2( 2, 2 )
+amount = 27
+process_material = SubResource( 7 )
+
+[node name="Particles2D2" type="Particles2D" parent="TitleText"]
+position = Vector2( 345.458, 186.887 )
+scale = Vector2( 2, 2 )
+amount = 27
+process_material = SubResource( 7 )
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="Start Game" to="." method="_on_Start_Game_pressed"]
 [connection signal="pressed" from="HowToPlay" to="." method="_on_HowToPlay_pressed"]

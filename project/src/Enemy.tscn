@@ -13,7 +13,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 314.526
+radius = 389.583
 height = 198.158
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -24,8 +24,9 @@ script = ExtResource( 3 )
 position = Vector2( -3.96851, 87.307 )
 frames = SubResource( 1 )
 animation = "walking"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 19.7993, 0 )
+position = Vector2( 87.2639, 35.7166 )
 shape = SubResource( 2 )

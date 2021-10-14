@@ -15,6 +15,14 @@ func _physics_process(_delta):
 		var collision := get_slide_collision(i)
 		if collision.collider.name == "Player":
 			emit_signal("player_hit")
+			if _velocity.x > 0:
+				$AnimatedSprite.flip_h = true
+				isFlipped = true
+			
+			elif _velocity.x < 0:
+				$AnimatedSprite.flip_h = false
+				isFlipped = false
+				
 			break
 			
 		if _velocity.x > 0:

@@ -2,7 +2,7 @@ extends Node2D
 
 var player : KinematicBody2D
 var enemy : KinematicBody2D
-var health := 5
+var health := 3
 var timer := 0
 
 
@@ -12,14 +12,14 @@ func _ready():
 	spawn_enemy(Vector2(1365, 387))
 	spawn_enemy(Vector2(2305, 387))
 	spawn_enemy(Vector2(4811, 780))
+	spawn_enemy(Vector2(3500, 780))
 	spawn_enemy(Vector2(3730, -57))
 	spawn_enemy(Vector2(878, -1085))
 	spawn_enemy(Vector2(2428, -894))
 
 
 func _process(_delta):
-	# Set up for the HUD and Song
-	$GameSong.pitch_scale = 1
+	# Set up for the HUD
 	timer = $HUD/Timer.time_left
 	$HUD/Lives.text = "Lives Left: %d" % health
 	$HUD/TimeLeft.text = "Time Left: %d" % timer
@@ -41,9 +41,11 @@ func _process(_delta):
 		var _game_over := get_tree().change_scene("res://src/GameOverScreens/Lose.tscn")
 	
 	# Increases the pitch scale of the song to sound faster when time is running low
-	if timer < 60 and timer > 30:
-		$GameSong.pitch_scale = 1.1
-	elif timer < 30:
+	if timer > 30:
+		$GameSong.pitch_scale = 1
+	elif timer < 30 and timer > 10:
+		$GameSong.pitch_scale = 1.2
+	elif timer < 10:
 		$GameSong.pitch_scale = 1.2
 
 
