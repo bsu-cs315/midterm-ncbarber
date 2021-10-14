@@ -15,6 +15,7 @@ func _physics_process(_delta):
 		if collision.collider.name == "Player":
 			print("Hit!")
 			emit_signal("player_hit")
+			break
 		if _velocity.x > 0:
 			$AnimatedSprite.flip_h = true
 			isFlipped = true

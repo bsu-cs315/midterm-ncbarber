@@ -15,6 +15,10 @@ func _ready():
 
 
 func _process(_delta):
+	timer = $HUD/Timer.time_left
+	$HUD/Lives.text = "Lives Left: %d" % health
+	$HUD/TimeLeft.text = "Time Left: %d" % timer
+	
 	if Input.is_action_pressed("reset"):
 		restart_game()
 		
@@ -40,8 +44,10 @@ func spawn_enemy(spawn_position):
 
 func register_hit():
 	$GhostHit.play()
+	call_deferred("remove_child", enemy)
 	call_deferred("remove_child", player)
 	health -= 1
+	call_deferred("add_child", enemy)
 	spawn_player()
 
 
