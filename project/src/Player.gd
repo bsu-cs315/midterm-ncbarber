@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var velocity := Vector2()
 var gravity := 600
-var jumpPower := -400
+var jumpPower := -420
 var speed := 300
 var jumpped := false
 var isFlipped := false
