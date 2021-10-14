@@ -4,13 +4,19 @@
 ## How to Play
 
 Controls
-- W or Up Arrow to Jump
+- W or Space or Up Arrow to Jump
 - A or Left Arrow to move left
 - D or Right Arrow to move right
 
 ## Reflection
 
-Here is where I will put my reflection
+For this midterm I thought that I would be fun to try to throw everything together like I were in an actual game jam.
+I wanted to try to basically do the one day jam.
+Thats what I set out to do with a basic game and I think that I did a pretty good job with the time that I gave myself.
+I was able to make a small little song, make my own sprites.
+All of these things started to become a bit faster to get down after making them once myself already.
+Every aspect of the project was definetly fun, and I enjoyed having some sort of enemy to dodge since that is something that I didn't do in the last iteration. 
+Definetly looking forward to the final project and starting at making something really interesting!
 
 ## Self-Evaluation
 
@@ -18,14 +24,14 @@ Here is where I will put my reflection
 - [X] D-2: The repository contains a <code>README.md</code> file in its top-level directory.
 - [X] D-3: The project content is eligible for an <a href="https://www.esrb.org/ratings-guide/">ESRB Rating</a> of M or less.
 - [X] C-1: Your repository is well-formed, with an appropriate <code>.gitignore</code> file and no unnecessary files tracked.
-- [ ] C-2: Your release is tagged using <a href="https://semver.org/">semantic versioning</a> where the major version is zero, the minor version is the iteration number, and the patch version is incremented as usual for each change made to the minor version, and the release name matches the release tag.
+- [X] C-2: Your release is tagged using <a href="https://semver.org/">semantic versioning</a> where the major version is zero, the minor version is the iteration number, and the patch version is incremented as usual for each change made to the minor version, and the release name matches the release tag.
 - [X] C-3: You have a clear legal right to use all incorporated assets, and the licenses for all third-party assets are tracked in the <code>README.md</code> file.
 - [X] C-4: The <code>README.md</code> contains instructions for how to play the game or such instructions are incorporated into the game itself.
 - [X] C-5: The project content is eligible for an <a href="https://www.esrb.org/ratings-guide/">ESRB Rating</a> of T or less.
 - [X] C-6: The game is stable and includes some gameplay.
-- [ ] B-1: The <code>README.md</code> file contains a personal reflection on the iteration and self-evaluation, as defined above.
-- [ ] B-2: The source code and project structure comply with our adopted style guides.
-- [ ] B-3: The game is playable with clear goals and end state.
+- [X] B-1: The <code>README.md</code> file contains a personal reflection on the iteration and self-evaluation, as defined above.
+- [X] B-2: The source code and project structure comply with our adopted style guides.
+- [X] B-3: The game is playable with clear goals and end state.
 - [X] A-1: The game includes a complete traditional player experience loop&mdash;title, gameplay, and ending&mdash;and the player has the option to play again.
 
 

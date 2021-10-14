@@ -7,6 +7,7 @@ var timer := 0
 
 
 func _ready():
+	# Spawn Player and All set enemies
 	spawn_player()
 	spawn_enemy(Vector2(1365, 387))
 	spawn_enemy(Vector2(2305, 387))
@@ -17,25 +18,33 @@ func _ready():
 
 
 func _process(_delta):
+	# Set up for the HUD and Song
 	$GameSong.pitch_scale = 1
 	timer = $HUD/Timer.time_left
 	$HUD/Lives.text = "Lives Left: %d" % health
 	$HUD/TimeLeft.text = "Time Left: %d" % timer
 	
+	# Watching for if quick commands are hit for testing
+	# R for reset
 	if Input.is_action_pressed("reset"):
 		restart_game()
 		
+	# esc for quit
 	if Input.is_action_pressed("quit"):
 		get_tree().quit()
 		
+	# Exit conditions
 	if health == 0:
 		var _game_over := get_tree().change_scene("res://src/GameOverScreens/Lose.tscn")
+	
+	if timer == 0:
+		var _game_over := get_tree().change_scene("res://src/GameOverScreens/Lose.tscn")
+	
+	# Increases the pitch scale of the song to sound faster when time is running low
 	if timer < 60 and timer > 30:
 		$GameSong.pitch_scale = 1.1
 	elif timer < 30:
 		$GameSong.pitch_scale = 1.2
-	if timer == 0:
-		var _game_over := get_tree().change_scene("res://src/GameOverScreens/Lose.tscn")
 
 
 func spawn_player():
