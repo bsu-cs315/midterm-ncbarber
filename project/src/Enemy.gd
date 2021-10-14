@@ -3,6 +3,7 @@ extends KinematicBody2D
 signal player_hit
 
 var _velocity := Vector2(-100,0)
+var isFlipped := false
 
 
 func _physics_process(_delta):
@@ -14,3 +15,9 @@ func _physics_process(_delta):
 		if collision.collider.name == "Player":
 			print("Hit!")
 			emit_signal("player_hit")
+		if _velocity.x > 0:
+			$AnimatedSprite.flip_h = true
+			isFlipped = true
+		elif _velocity.x < 0:
+			$AnimatedSprite.flip_h = false
+			isFlipped = false

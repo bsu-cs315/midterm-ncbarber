@@ -9,7 +9,8 @@ var score := 0
 
 func _ready():
 	spawn_player()
-	spawn_enemy(Vector2(256, 385))
+	spawn_enemy(Vector2(1365, 387))
+	spawn_enemy(Vector2(2305, 387))
 
 
 func _process(_delta):
@@ -19,6 +20,8 @@ func _process(_delta):
 	if Input.is_action_pressed("quit"):
 		get_tree().quit()
 		
+	if health == 0:
+		var _game_over := get_tree().change_scene("res://src/GameOverScreens/Lose.tscn")
 
 
 func spawn_player():
