@@ -11,6 +11,7 @@ func _ready():
 	spawn_player()
 	spawn_enemy(Vector2(1365, 387))
 	spawn_enemy(Vector2(2305, 387))
+	spawn_enemy(Vector2(4811, 780))
 
 
 func _process(_delta):
@@ -38,10 +39,10 @@ func spawn_enemy(spawn_position):
 
 
 func register_hit():
+	$GhostHit.play()
 	call_deferred("remove_child", player)
-	call_deferred("remove_child", enemy)
 	health -= 1
-	_ready()
+	spawn_player()
 
 
 func restart_game():

@@ -31,8 +31,5 @@ Here is where I will put my reflection
 
 ## Third-Party Resources
 
-- [Kenny's Physics Assets](https://kenney.nl/assets/physics-assets), licensed under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
-- [Kenny's Background Elements Redux](https://kenney.nl/assets/background-elements-redux), licensed under 
-[CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
 - [Nosifer by Typomondo](https://fonts.google.com/specimen/Nosifer?query=Nosi#standard-styles), licensed under [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)
 - All sounds and music were made by me using [beepbox.co](https://www.beepbox.co/#8n31s0k0l00e03t2mm0a7g0fj07i0r1o3210T5v1L4ua3q1d4f7y5z1C0c4h0HTP9Bx99sp99900T1v1L4uc8q1d2f3y4z1C0c0A1F0B2V1Q2070Pb660E0191T1v1L4u66q1d5f8y1z7C0c0A5F4B5V7Q1753Pca88E0088T4v1L4uf0q1z6666ji8k8k3jSBKSJJAArriiiiii07JCABrzrrrrrrr00YrkqHrsrrrrjr005zrAqzrjzrrqr1jRjrqGGrrzsrsA099ijrABJJJIAzrrtirqrqjqixzsrAjrqjiqaqqysttAJqjikikrizrHtBJJAzArzrIsRCITKSS099ijrAJS____Qg99habbCAYrDzh00b4h400000000h4g000000014h000000004h400000000p16000000)

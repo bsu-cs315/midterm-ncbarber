@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GhostHit.wav-9b10430dca2477f3e2a6f64341dc36e8.sample"
+
+[deps]
+
+source_file="res://assets/sounds/GhostHit.wav"
+dest_files=[ "res://.import/GhostHit.wav-9b10430dca2477f3e2a6f64341dc36e8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
