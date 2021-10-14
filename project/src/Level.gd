@@ -4,7 +4,6 @@ var player : KinematicBody2D
 var enemy : KinematicBody2D
 var health := 5
 var timer := 0
-var score := 0
 
 
 func _ready():
@@ -12,9 +11,13 @@ func _ready():
 	spawn_enemy(Vector2(1365, 387))
 	spawn_enemy(Vector2(2305, 387))
 	spawn_enemy(Vector2(4811, 780))
+	spawn_enemy(Vector2(3730, -57))
+	spawn_enemy(Vector2(878, -1085))
+	spawn_enemy(Vector2(2428, -894))
 
 
 func _process(_delta):
+	$GameSong.pitch_scale = 1
 	timer = $HUD/Timer.time_left
 	$HUD/Lives.text = "Lives Left: %d" % health
 	$HUD/TimeLeft.text = "Time Left: %d" % timer
@@ -26,6 +29,12 @@ func _process(_delta):
 		get_tree().quit()
 		
 	if health == 0:
+		var _game_over := get_tree().change_scene("res://src/GameOverScreens/Lose.tscn")
+	if timer < 60 and timer > 30:
+		$GameSong.pitch_scale = 1.1
+	elif timer < 30:
+		$GameSong.pitch_scale = 1.2
+	if timer == 0:
 		var _game_over := get_tree().change_scene("res://src/GameOverScreens/Lose.tscn")
 
 

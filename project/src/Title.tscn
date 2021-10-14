@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/fonts/Nosifer-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/Title.gd" type="Script" id=2]
@@ -7,10 +7,87 @@
 size = 32
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=5]
+resource_name = "ZoomIn"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "ZoomIn"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
 [sub_resource type="DynamicFont" id=2]
 size = 64
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "FloatIn"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 158.5, 600 ), Vector2( 158.5, 400 ), Vector2( 158.5, 200 ), Vector2( 158.5, 100 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "MoveAndRotate"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 158.5, 100 ), Vector2( 138.5, 105 ), Vector2( 118.5, 110 ), Vector2( 138.5, 105 ), Vector2( 158.5, 100 ), Vector2( 178.5, 100 ), Vector2( 198.5, 90 ), Vector2( 178.5, 95 ), Vector2( 158.5, 100 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 2.0, 1.0, 0.0, -1.0, -2.0, -1.0, 0.0 ]
+}
 
 [node name="Title" type="Control"]
 margin_right = 1037.0
@@ -37,11 +114,17 @@ margin_left = -143.0
 margin_top = 17.5
 margin_right = 143.0
 margin_bottom = 79.5
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 146.566, 32.8895 )
 custom_fonts/font = SubResource( 1 )
 text = "Start Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ZoomIn" type="AnimationPlayer" parent="Start Game"]
+autoplay = "ZoomIn"
+anims/ZoomIn = SubResource( 5 )
 
 [node name="HowToPlay" type="Button" parent="."]
 anchor_left = 0.5
@@ -52,26 +135,42 @@ margin_left = -149.5
 margin_top = 117.5
 margin_right = 149.5
 margin_bottom = 179.5
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 146.392, 30.3329 )
 custom_fonts/font = SubResource( 1 )
 text = "How To Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="ZoomIn" type="AnimationPlayer" parent="HowToPlay"]
+autoplay = "ZoomIn"
+anims/ZoomIn = SubResource( 6 )
+
+[node name="TitleText" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -360.0
 margin_top = 100.0
 margin_right = 360.0
 margin_bottom = 212.0
+rect_pivot_offset = Vector2( 364.901, 53.9984 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.560784, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Half-Way Home"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
+[node name="FloatIn" type="AnimationPlayer" parent="TitleText"]
+autoplay = "FloatIn"
+anims/FloatIn = SubResource( 3 )
+
+[node name="MoveAndRotate" type="AnimationPlayer" parent="TitleText"]
+anims/MoveAndRotate = SubResource( 4 )
+
 [connection signal="pressed" from="Start Game" to="." method="_on_Start_Game_pressed"]
+[connection signal="pressed" from="HowToPlay" to="." method="_on_HowToPlay_pressed"]
+[connection signal="animation_finished" from="TitleText/FloatIn" to="." method="_on_FloatIn_animation_finished"]
