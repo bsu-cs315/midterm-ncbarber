@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/Nosifer-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/GameOverScreens/Lose.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/SpookySong.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -74,6 +75,11 @@ You Lose"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+pitch_scale = 0.8
+autoplay = true
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="MainMenu" to="." method="_on_MainMenu_pressed"]

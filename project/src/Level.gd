@@ -48,3 +48,7 @@ func register_hit():
 func restart_game():
 	var _restart := get_tree().change_scene("res://src/Title.tscn")
 
+
+func _on_Home_body_entered(body):
+	if body == player:
+		var _game_over := get_tree().change_scene("res://src/GameOverScreens/Win.tscn")
