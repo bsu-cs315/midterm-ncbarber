@@ -1,7 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/sprites/GroundSheet.png" type="Texture" id=1]
-[ext_resource path="res://src/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Level.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0, 0, 0.0463576, 0.516556, 1 )
+colors = PoolColorArray( 0.570313, 0.375, 1, 1, 0.48938, 0.304688, 1, 1, 0.469299, 0.277344, 1, 1, 0.265625, 0, 1, 1, 0.0715944, 0, 0.269531, 1 )
+
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -192,45 +199,20 @@ points = PoolVector2Array( 63.6775, 43.9531, 6.0751, 42.9484, 0.716736, 35.9155,
 6/z_index = 0
 
 [node name="Level" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 900, 0 )
 
-[node name="Background" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -0.0947266
-margin_top = -5.5686
-margin_right = 1031.91
-margin_bottom = 602.431
-color = Color( 0.294118, 0, 0.584314, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Background" type="ColorRect" parent="ParallaxBackground/ParallaxLayer2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -2.09473
-margin_top = -403.405
-margin_right = 1029.91
-margin_bottom = 204.595
-color = Color( 0.145098, 0, 0.290196, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 234.841, 146.528 )
+rotation = -1.5708
+scale = Vector2( 1, 2500 )
+texture = SubResource( 13 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 format = 1
-tile_data = PoolIntArray( 393224, 2, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 3, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0 )
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 63.9081, 383.449 )
+tile_data = PoolIntArray( -10, 1, 0, -9, 1, 0, 65526, 1, 0, 65527, 1, 0, 131062, 1, 0, 131063, 1, 0, 196598, 1, 0, 196599, 1, 0, 262134, 1, 0, 262135, 1, 0, 327670, 1, 0, 327671, 1, 0, 393206, 1, 0, 393207, 1, 0, 458742, 1, 0, 458743, 1, 0, 393224, 2, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 3, 0, 524278, 1, 0, 524279, 1, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 589814, 1, 0, 589815, 1, 0, 589816, 1, 0, 589817, 1, 0, 589818, 1, 0, 589819, 1, 0, 589820, 1, 0, 589821, 1, 0, 589822, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 1, 0, 524314, 1, 0, 655350, 1, 0, 655351, 1, 0, 655352, 1, 0, 655353, 1, 0, 655354, 1, 0, 655355, 1, 0, 655356, 1, 0, 655357, 1, 0, 655358, 1, 0, 655359, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0 )

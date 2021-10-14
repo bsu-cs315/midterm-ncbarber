@@ -35,11 +35,14 @@ script = ExtResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 5.99316, 5.99323 )
 frames = SubResource( 1 )
-animation = "walking"
-frame = 13
+animation = "idle"
 speed_scale = 2.0
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -47.9457, 83.9055 )
 shape = SubResource( 2 )
+
+[node name="Camera" type="Camera2D" parent="."]
+offset = Vector2( 0, -100 )
+current = true
